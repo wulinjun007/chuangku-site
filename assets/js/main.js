@@ -25,6 +25,11 @@
   function playSVG() {
     return '<svg viewBox="0 0 24 24" fill="none"><path fill="currentColor" fill-rule="evenodd" d="M12 20.5a8.5 8.5 0 1 0 0-17 8.5 8.5 0 0 0 0 17m-.94-4.327 4.386-2.925a1.5 1.5 0 0 0 0-2.496L11.06 7.827c-.996-.664-2.332.05-2.332 1.249v5.849c0 1.197 1.335 1.912 2.332 1.248" clip-rule="evenodd"/></svg>';
   }
+  function wwebp(w) { return w.img.replace('/works/', '/works-webp/').replace('.jpg', '.webp'); }
+  /* 弱网优化：webp 与 jpg 同宽（1000w）时浏览器优先选 webp；eager 用于首屏 */
+  function imgTag(w, sizes, eager) {
+    return '<img src="' + w.img + '" srcset="' + wwebp(w) + ' 1000w, ' + w.img + ' 1000w" sizes="' + sizes + '" decoding="async"' + (eager ? '' : ' loading="lazy"') + ' alt="' + esc(w.title) + '">';
+  }
 
   /* ---------- 点赞持久化 ---------- */
   var LIKES_KEY = 'cku_likes_v1';
@@ -41,7 +46,7 @@
   /* ---------- 组件：作品卡 ---------- */
   function workCard(w) {
     return '<a class="wcard" href="work.html?id=' + w.id + '">' +
-      '<div class="cover"><img src="' + w.img + '" alt="' + esc(w.title) + '" loading="lazy">' +
+      '<div class="cover">' + imgTag(w, '(max-width:800px) 50vw, 25vw') +
       (w.video ? '<span class="typebox">' + playSVG() + '</span>' : '') +
       '<span class="badge" title="站酷风格推荐等级">' + fireSVG(w.tier) + '</span></div>' +
       '<div class="body"><div class="wt">' + esc(w.title) + '</div>' +
@@ -52,7 +57,7 @@
   function articleCard(w) {
     var abs = ABS[w.id] || '点击阅读全文，看看创作者的思考与观察。';
     return '<a class="acard" href="work.html?id=' + w.id + '">' +
-      '<div class="cover"><img src="' + w.img + '" alt="' + esc(w.title) + '" loading="lazy"></div>' +
+      '<div class="cover">' + imgTag(w, '(max-width:960px) 100vw, 33vw') + '</div>' +
       '<div class="body"><span class="a-cat">' + esc(w.cat) + ' · ' + w.date + '</span>' +
       '<div class="a-title">' + esc(w.title) + '</div>' +
       '<div class="a-abs">' + esc(abs) + '</div>' +
@@ -153,7 +158,7 @@
     if (collage) {
       var cls = ['t1', 't2', 't3', 't4'];
       collage.innerHTML = feats.map(function (w, i) {
-        return '<div class="tile ' + cls[i] + '"><img src="' + w.img + '" alt="' + esc(w.title) + '">' +
+        return '<div class="tile ' + cls[i] + '">' + imgTag(w, '40vw', true) +
           '<div class="cap"><span>' + esc(w.title) + '</span><span class="lk">♥ ' + w.likes + '</span></div></div>';
       }).join('');
     }
@@ -261,7 +266,7 @@
     box.innerHTML = hot.map(function (w, i) {
       return '<a class="rank-row' + (i < 3 ? ' top' + (i + 1) : '') + '" href="work.html?id=' + w.id + '">' +
         '<span class="no">' + (i + 1) + '</span>' +
-        '<span class="thumb"><img src="' + w.img + '" alt="" loading="lazy"></span>' +
+        '<span class="thumb">' + imgTag(w, '132px') + '</span>' +
         '<span class="r-info"><span class="r-t">' + esc(w.title) + '</span><span class="r-a"><img src="' + w.av + '" alt="">' + esc(w.author) + ' · ' + w.cat + ' · ' + w.date + '发布</span></span>' +
         '<span class="r-hot"><svg viewBox="0 0 16 16"><path d="M13.4 1.6c-1.8.6-2.5 1.8-2.6 3 0 0 0 .3-.1.5-.2.1-.3 0-.6-.2-.6-1-1-2.4-1-4.9-4 1.6-4.8 4.5-4.8 6.3 0 .6-.5.5-.6.5-.4-.3-.6-.7-.6-.7V6c-.2-1.1 0-2 0-2C1.6 4.8.9 6.9.9 8.6.9 12.7 4.1 16 8 16s7.1-2.9 7.1-7c0-2.6-1.7-4.1-1.7-7.4"/></svg>' + fmt(w.views) + '</span></a>';
     }).join('');
@@ -292,7 +297,7 @@
       '<div><div class="d-nm">' + esc(d.author) + '</div><div class="d-honor">' + esc(d.honor) + ' · ' + d.city + '</div></div></div>' +
       '<div class="d-meta"><span>粉丝 <b>' + fmt(d.fans) + '</b></span><span>获赞 <b>' + fmt(d.likes) + '</b></span><span>作品 <b>' + d.n + '</b></span></div>' +
       '<div class="d-fields">' + d.fields.map(function (f) { return '<span class="f">' + esc(f) + '</span>'; }).join('') + '</div>' +
-      '<div class="d-works">' + cells.map(function (w) { return '<a href="work.html?id=' + w.id + '"><img src="' + w.img + '" alt="' + esc(w.title) + '" loading="lazy"></a>'; }).join('') + '</div>' +
+      '<div class="d-works">' + cells.map(function (w) { return '<a href="work.html?id=' + w.id + '">' + imgTag(w, '130px') + '</a>'; }).join('') + '</div>' +
       '<div class="d-foot"><button class="btn btn-line btn-sm" data-msg="演示站点：关注功能未接入服务端">+ 关注</button>' +
       '<button class="btn btn-primary btn-sm" data-msg="演示站点：私信功能未接入服务端">私信</button></div></div>';
   }
@@ -320,7 +325,7 @@
   /* ---------- 大赛 ---------- */
   function eventCard(ev) {
     return '<a class="ecard" href="javascript:void(0)" data-msg="演示站点：大赛详情页未收录">' +
-      '<img src="' + ev.img + '" alt="' + esc(ev.name) + '" loading="lazy"><span class="veil"></span>' +
+      '<img src="' + ev.img + '" srcset="' + ev.img.replace('/works/', '/works-webp/').replace('.jpg', '.webp') + ' 640w" sizes="(max-width:960px) 100vw, 33vw" decoding="async" loading="lazy" alt="' + esc(ev.name) + '"><span class="veil"></span>' +
       '<span class="e-tag' + (ev.ended ? ' end' : '') + '">' + (ev.ended ? '已截稿' : '征稿中') + '</span>' +
       '<div class="ebody"><div class="e-name">' + esc(ev.name) + '</div>' +
       '<div class="e-info"><span>💰 ' + ev.prize + '</span><span>⏳ ' + ev.deadline + (ev.ended ? ' 截稿' : ' 截稿') + '</span><span>👤 ' + ev.host + '</span></div></div></a>';
@@ -357,7 +362,7 @@
       '<div class="d-sub"><a class="cat-link" href="discover.html?cat=' + encodeURIComponent(w.cat) + '">' + esc(w.cat) + '</a>' +
       '<span>' + w.date + ' 发布</span><span>' + fmt(w.views) + ' 浏览</span><span>' + fmt(w.favs) + ' 收藏</span><span>' + w.comments + ' 条评论</span>' +
       (w.video ? '<span>含视频内容</span>' : '') + '</div>' +
-      '<figure class="detail-cover"><img src="' + w.img + '" alt="' + esc(w.title) + '"></figure>' +
+      '<figure class="detail-cover">' + imgTag(w, '(max-width:960px) 100vw, 62vw', true) + '</figure>' +
       '<div class="detail-body"><p>' + (abs || '《' + w.title + '》来自创作者 ' + w.author + '，发布于' + w.cat + '频道。作品通过了社区原创审核，并在首页推荐流中展示。') + '</p>' +
       '<p>本页为静态演示详情：封面与作者信息均抓取自站酷公开页面，仅作学习演示，版权归原作者所有。喜欢这部作品的话，欢迎点赞支持创作者。</p></div>' +
       '<div class="action-rail">' +
@@ -429,6 +434,16 @@
   }
 
   /* ---------- Boot ---------- */
+  /* 弱网重试：连接被重置时对失败图片换参数重拉一次 */
+  document.addEventListener('error', function (e) {
+    var img = e.target;
+    if (img && img.tagName === 'IMG' && !img.dataset.retried && img.src.indexOf('data:') !== 0) {
+      img.dataset.retried = '1';
+      var src = img.getAttribute('src') || '';
+      img.src = src + (src.indexOf('?') > -1 ? '&' : '?') + 'retry=1';
+    }
+  }, true);
+
   document.addEventListener('DOMContentLoaded', function () {
     renderHeader(); renderFooter(); initBacktop(); initLogin();
     if (PAGE === 'index') initIndex();
