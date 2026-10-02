@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>创酷 CHUANGKU · 发现原创造意，连接设计价值</title>
+<meta name="description" content="创酷 CHUANGKU 设计创意社区：作品发现、设计大赛、找设计师、看点资讯。学习演示项目。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230677f9'/%3E%3Ctext x='16' y='22' font-size='17' font-weight='700' text-anchor='middle' fill='%23fff' font-family='PingFang SC,sans-serif'%3E创%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body data-page="index" data-header-dark>
+<div id="site-header"></div>
+
+<!-- ===== Hero（暗色 · 蓝辉光） ===== -->
+<section class="hero">
+  <div class="container">
+    <div>
+      <h1>发现原创造意<br><span class="em">连接设计价值</span></h1>
+      <p class="hero-sub">插画、品牌、字体、AIGC 影像、三维 CG……每天上新数千件原创作品，让好设计被看见、被需要、被付费。</p>
+      <form class="hero-search" id="hero-search">
+        <input type="text" placeholder="搜索作品、设计师，或输入你感兴趣的领域" aria-label="搜索作品">
+        <button class="search-go" type="submit">搜索</button>
+      </form>
+      <div class="hero-tags">
+        <span>热门：</span>
+        <a href="discover.html?cat=AIGC%E5%BD%B1%E5%83%8F">AIGC 影像</a>
+        <a href="discover.html?cat=%E5%93%81%E7%89%8C%E8%AE%BE%E8%AE%A1">品牌设计</a>
+        <a href="discover.html?cat=%E5%AD%97%E4%BD%93%E8%AE%BE%E8%AE%A1">字体设计</a>
+        <a href="discover.html?cat=%E6%B8%B8%E6%88%8F%E5%88%9B%E6%84%8F">游戏创意</a>
+        <a href="events.html">设计大赛</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="num">960<em>万+</em></div><div class="lbl">注册设计师</div></div>
+        <div><div class="num">3.2<em>亿+</em></div><div class="lbl">累计原创作品</div></div>
+        <div><div class="num">28<em>万+</em></div><div class="lbl">企业雇主</div></div>
+      </div>
+    </div>
+    <div class="hero-collage" id="hero-collage" aria-hidden="true"></div>
+  </div>
+</section>
+
+<!-- ===== 推荐等级说明 ===== -->
+<section class="sec" style="padding-top:64px">
+  <div class="container">
+    <div class="sec-head"><div><h2 class="h2">三火推荐体系</h2><p class="sub">每一件作品都经过原创审核与人工推荐，火苗数量代表推荐等级</p></div></div>
+    <div class="tier-strip" id="tier-strip"></div>
+  </div>
+</section>
+
+<!-- ===== 分类宫格 ===== -->
+<section class="sec" style="padding-top:20px">
+  <div class="container">
+    <div class="sec-head"><div><h2 class="h2">按领域探索</h2><p class="sub">9 大内容频道，覆盖设计行业主要创作方向</p></div><a class="more-link" href="discover.html">全部作品 →</a></div>
+    <div class="cat-grid" id="cat-grid"></div>
+  </div>
+</section>
+
+<!-- ===== 作品精选 ===== -->
+<section class="sec" style="padding-top:20px">
+  <div class="container">
+    <div class="sec-head">
+      <div><h2 class="h2">作品精选</h2><p class="sub">来自社区的真实创作，点击卡片查看作品详情</p></div>
+      <a class="more-link" href="discover.html">查看更多 →</a>
+    </div>
+    <div class="filter-bar" id="home-tabs" style="margin-bottom:22px">
+      <button class="tab active" data-tab="rec">🔥 首页推荐</button>
+      <button class="tab" data-tab="new">🆕 最新发布</button>
+      <button class="tab" data-tab="hot">📈 最多浏览</button>
+    </div>
+    <div class="work-grid" id="home-grid"></div>
+    <div class="grid-more"><a class="btn btn-line btn-lg" href="discover.html">进入发现频道，查看全部 58 件作品</a></div>
+  </div>
+</section>
+
+<!-- ===== 看点精选 ===== -->
+<section class="sec" style="padding-top:20px">
+  <div class="container">
+    <div class="sec-head"><div><h2 class="h2">看点精选</h2><p class="sub">创作者的一线经验、行业观察与深度访谈</p></div><a class="more-link" href="articles.html">全部看点 →</a></div>
+    <div class="art-grid" id="home-articles"></div>
+  </div>
+</section>
+
+<!-- ===== 大赛活动 ===== -->
+<section class="sec" style="padding-top:20px">
+  <div class="container">
+    <div class="sec-head"><div><h2 class="h2">设计大赛 · 活动精选</h2><p class="sub">用一场比赛，把作品变成机会</p></div><a class="more-link" href="events.html">全部大赛 →</a></div>
+    <div class="event-grid" id="home-events"></div>
+  </div>
+</section>
+
+<!-- ===== 找设计师 ===== -->
+<section class="sec" style="padding-top:20px">
+  <div class="container">
+    <div class="sec-head"><div><h2 class="h2">优质设计师</h2><p class="sub">经过认证的推荐设计师，可直接私信合作</p></div><a class="more-link" href="designers.html">找更多设计师 →</a></div>
+    <div class="des-grid" id="home-designers"></div>
+  </div>
+</section>
+
+<!-- ===== 暗色收尾 CTA ===== -->
+<section class="cta-dark">
+  <h2>准备好发布你的<br>第一个作品了吗？</h2>
+  <p>上传作品 → 通过原创审核 → 获得火苗推荐 → 被企业看见。全流程免费。</p>
+  <a class="btn btn-primary btn-lg" href="publish.html">立即发布作品</a>
+</section>
+
+<div id="site-footer"></div>
+<script src="assets/js/works.js"></script>
+<script src="assets/js/site-data.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

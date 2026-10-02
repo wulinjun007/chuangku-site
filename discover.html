@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>发现作品 · 创酷 CHUANGKU</title>
+<meta name="description" content="按领域发现原创设计作品：AIGC影像、插画漫画、品牌设计、字体设计、三维CG、游戏创意、UI网页、摄影。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230677f9'/%3E%3Ctext x='16' y='22' font-size='17' font-weight='700' text-anchor='middle' fill='%23fff' font-family='PingFang SC,sans-serif'%3E创%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body data-page="discover">
+<div id="site-header"></div>
+
+<div class="container page-head">
+  <h2 class="h2">发现作品</h2>
+  <p class="sub">全部作品均通过原创审核 · 火苗数量代表推荐等级 · 点击卡片查看详情</p>
+</div>
+
+<div class="container" style="padding-top:28px">
+  <div class="disc-layout">
+    <aside class="disc-side" id="disc-side"></aside>
+    <div>
+      <div class="filter-bar" id="disc-tabs">
+        <button class="tab active" data-sort="rec">综合推荐</button>
+        <button class="tab" data-sort="new">最新发布</button>
+        <button class="tab" data-sort="hot">最多浏览</button>
+        <span class="spacer"></span>
+        <span class="count" id="disc-count"></span>
+      </div>
+      <div class="work-grid" id="disc-grid"></div>
+    </div>
+  </div>
+</div>
+
+<div id="site-footer"></div>
+<script src="assets/js/works.js"></script>
+<script src="assets/js/site-data.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>发布作品 · 创酷 CHUANGKU</title>
+<meta name="description" content="发布原创作品：通过原创审核后有机会获得火苗推荐，被企业与同行看见。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230677f9'/%3E%3Ctext x='16' y='22' font-size='17' font-weight='700' text-anchor='middle' fill='%23fff' font-family='PingFang SC,sans-serif'%3E创%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body data-page="publish">
+<div id="site-header"></div>
+
+<div class="container page-head">
+  <h2 class="h2">发布作品</h2>
+  <p class="sub">原创内容将在审核通过后进入推荐流 · 转载内容请提前获得授权并标注来源</p>
+</div>
+
+<div class="container" style="padding-top:28px;padding-bottom:80px">
+  <div class="pub-layout">
+    <form class="form-card" id="pub-form">
+      <div class="f-t">作品信息</div>
+      <div class="field">
+        <label for="f-title">作品标题<span class="req">*</span></label>
+        <input class="ipt" id="f-title" type="text" maxlength="40" placeholder="一句话说清作品亮点，例如：《山是海的影子》AIGC 剧情短片">
+        <div class="tip">好标题 = 题材 + 形式 + 亮点，40 字以内</div>
+      </div>
+      <div class="field">
+        <label for="f-cat">所属频道<span class="req">*</span></label>
+        <select class="sel" id="f-cat">
+          <option>AIGC影像</option><option>插画漫画</option><option>品牌设计</option><option>三维CG</option>
+          <option>游戏创意</option><option>UI·网页</option><option>字体设计</option><option>摄影</option><option>看点·文章</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>封面图<span class="req">*</span></label>
+        <div class="upload-box" id="up-box">
+          <div class="ic">☁️</div>
+          <div>点击上传封面，建议 4:3 比例、宽度 ≥ 1000px</div>
+          <div class="tip" style="margin-top:6px">支持 JPG / PNG / WebP，单张 ≤ 20MB</div>
+        </div>
+        <input type="file" id="up-file" accept="image/*" hidden>
+      </div>
+      <div class="field">
+        <label for="f-desc">作品简介</label>
+        <textarea class="txa" id="f-desc" placeholder="介绍创作背景、使用的工作流、想解决的问题。写得越具体，越容易被推荐。"></textarea>
+      </div>
+      <div class="field">
+        <label>内容标签（最多选 3 个）</label>
+        <div class="tag-picks" id="tag-picks">
+          <button type="button">AIGC</button><button type="button">品牌全案</button><button type="button">字体</button>
+          <button type="button">三维渲染</button><button type="button">游戏</button><button type="button">UI/UX</button>
+          <button type="button">插画</button><button type="button">摄影</button><button type="button">视频短片</button>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-lg" type="submit" style="width:100%">提交审核</button>
+    </form>
+
+    <aside class="side-guide">
+      <div class="side-panel">
+        <div class="sp-t">发布流程</div>
+        <div class="guide-list">
+          <div class="g"><span class="gi">1</span><span>填写作品信息并上传封面</span></div>
+          <div class="g"><span class="gi">2</span><span>原创审核：通常 24 小时内完成</span></div>
+          <div class="g"><span class="gi">3</span><span>进入推荐流，竞争佳作推荐 🔥</span></div>
+          <div class="g"><span class="gi">4</span><span>编辑精选可升级频道推荐 🔥🔥 与首页推荐 🔥🔥🔥</span></div>
+        </div>
+      </div>
+      <div class="side-panel">
+        <div class="sp-t">获得推荐的关键</div>
+        <div class="guide-list">
+          <div class="g"><span class="gi">✦</span><span>封面统一 4:3，主体清晰不糊图</span></div>
+          <div class="g"><span class="gi">✦</span><span>简介写清工作流与创作思路</span></div>
+          <div class="g"><span class="gi">✦</span><span>标注真实原创，拒绝搬运洗稿</span></div>
+          <div class="g"><span class="gi">✦</span><span>发布后 2 小时内的互动率很关键</span></div>
+        </div>
+        <div class="notice">⚠️ 本页为演示环境：表单不会上传文件，提交不会保存内容，也不会伪造"发布成功"。</div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<div id="site-footer"></div>
+<script src="assets/js/works.js"></script>
+<script src="assets/js/site-data.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

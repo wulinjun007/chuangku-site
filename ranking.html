@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>热门榜单 · 创酷 CHUANGKU</title>
+<meta name="description" content="创酷热门榜单：作品浏览榜 TOP20、新星榜、设计师影响力榜，每日更新。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230677f9'/%3E%3Ctext x='16' y='22' font-size='17' font-weight='700' text-anchor='middle' fill='%23fff' font-family='PingFang SC,sans-serif'%3E创%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body data-page="ranking">
+<div id="site-header"></div>
+
+<div class="container page-head">
+  <h2 class="h2">热门榜单</h2>
+  <p class="sub">基于近 7 日浏览与互动数据加权计算 · 每日 10:00 更新</p>
+</div>
+
+<div class="container" style="padding-top:28px">
+  <div class="rank-layout">
+    <div>
+      <div class="sec-head" style="margin-bottom:16px"><div><h3 class="h3">📈 作品浏览榜 TOP 20</h3></div></div>
+      <div class="rank-list" id="rank-list"></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div class="side-panel">
+        <div class="sp-t">🚀 新星榜</div>
+        <div class="mini-rank" id="rank-rising"></div>
+      </div>
+      <div class="side-panel">
+        <div class="sp-t">👑 设计师影响力榜</div>
+        <div class="mini-rank" id="rank-designers"></div>
+      </div>
+      <div class="side-panel" style="background:var(--grad-soft)">
+        <div class="sp-t">上榜规则</div>
+        <p style="font-size:13px;color:var(--ink-2);line-height:1.8">浏览榜 = 近 7 日真实浏览 + 点赞加权；新星榜 = 发布 20 天内获赞增速最快；影响力榜 = 设计师全部作品累计获赞。刷量数据会被过滤并取消上榜资格。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="site-footer"></div>
+<script src="assets/js/works.js"></script>
+<script src="assets/js/site-data.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
