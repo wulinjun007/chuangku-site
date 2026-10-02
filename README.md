@@ -2,7 +2,8 @@
 
 参考 [站酷 ZCOOL](https://www.zcool.com.cn/) 功能结构的纯静态设计社区演示站，视觉语言采用《网站设计系统逆向提取 · 11 站》中 **01-豆包（Semi Design 底座）** 的提取规范。
 
-**线上地址**：https://chuangku-site.netlify.app
+**线上地址**：https://wulinjun007.github.io/chuangku-site/（GitHub Pages）
+> 注：Netlify 站点已建（ID `3e0a98a7-ab6d-495d-ba58-7580db4724c2`）但当日账户部署额度用尽被封锁，额度恢复后可用 `netlify deploy --prod --dir . --site 3e0a98a7-ab6d-495d-ba58-7580db4724c2` 迁移。
 
 ## 功能结构（对照站酷）
 
